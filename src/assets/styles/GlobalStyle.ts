@@ -10,13 +10,16 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     overflow-y: hidden;
+    min-height: 100vh;
+    min-width: 100%;
+    background-color: ${({ theme }) => theme.colors.black};
   }
   
   a, button {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 `;
