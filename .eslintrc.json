@@ -55,7 +55,8 @@
                 "jsxSingleQuote": true
             }
         ],
-        "camelcase": "off"
+        "camelcase": "off",
+        "@typescript-eslint/camelcase": "off"
     },
     "settings": {
         "import/resolver": {

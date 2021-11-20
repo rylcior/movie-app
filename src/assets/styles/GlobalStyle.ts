@@ -11,11 +11,11 @@ export const GlobalStyle = createGlobalStyle`
   
   body {
     font-family: 'Poppins', sans-serif;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
-    overflow-y: hidden;
+    overflow-x: hidden;
     min-height: 100vh;
-    min-width: 100%;
+    max-width: 1300px;
     background-color: ${({ theme }) => theme.colors.black};
   }
   

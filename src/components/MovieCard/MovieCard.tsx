@@ -16,9 +16,13 @@ interface IMovieCard {
 }
 
 const MovieCard = ({ title, rate, genre, poster }: IMovieCard) => {
+    const getPoster = (): string => {
+        return `https://image.tmdb.org/t/p/w300${poster}`;
+    };
+
     return (
         <MovieCardWrapper>
-            {poster ? <MovieImage src={poster} /> : null}
+            {poster ? <MovieImage src={getPoster()} /> : null}
             <TitleAndRateWrapper>
                 <MovieTitle>{title}</MovieTitle>
                 <MovieRate>{rate}</MovieRate>
