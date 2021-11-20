@@ -54,7 +54,8 @@
                 "singleQuote": true,
                 "jsxSingleQuote": true
             }
-        ]
+        ],
+        "camelcase": "off"
     },
     "settings": {
         "import/resolver": {

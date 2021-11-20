@@ -12,12 +12,13 @@ interface IMovieCard {
     title: string;
     rate: number;
     genre: Array<number>;
+    poster: string | null;
 }
 
-const MovieCard = ({ title, rate, genre }: IMovieCard) => {
+const MovieCard = ({ title, rate, genre, poster }: IMovieCard) => {
     return (
         <MovieCardWrapper>
-            <MovieImage src='https://www.maluchity.pl/uploads/products/full/TREE028.jpg' />
+            {poster ? <MovieImage src={poster} /> : null}
             <TitleAndRateWrapper>
                 <MovieTitle>{title}</MovieTitle>
                 <MovieRate>{rate}</MovieRate>
