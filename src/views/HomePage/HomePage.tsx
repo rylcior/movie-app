@@ -9,6 +9,7 @@ import {
 } from 'api/dataProvider';
 import { FilterNames } from 'enums/FiltersNames';
 import Filters from 'components/Filters/Filters';
+import LoadSpinner from 'components/LoadSpinner';
 import { HomePageWrapper } from './HomePage.styles';
 
 const HomePage = () => {
@@ -16,8 +17,11 @@ const HomePage = () => {
     const [currentFilter, setCurrentFilter] = useState<FilterNames>(
         FilterNames.POPULAR
     );
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
+        setIsLoading(true);
+
         if (currentFilter === FilterNames.POPULAR) {
             getPopularMovies().then((resp) => {
                 setMovieList(resp.data.results);
@@ -35,6 +39,8 @@ const HomePage = () => {
                 setMovieList(resp.data.results);
             });
         }
+
+        setIsLoading(false);
     }, [currentFilter]);
 
     const onFilterChange = (filterName: FilterNames): void => {
@@ -44,7 +50,7 @@ const HomePage = () => {
     return (
         <HomePageWrapper>
             <Filters onChange={onFilterChange} />
-            <MovieList movies={movieList} />
+            {isLoading ? <LoadSpinner /> : <MovieList movies={movieList} />}
         </HomePageWrapper>
     );
 };
