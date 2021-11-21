@@ -19,6 +19,7 @@ export const theme: DefaultTheme = {
         error: '#FF8383',
         warning: '#E1D888',
         cream: '#fefbe9',
+        darkCream: '#fefbd1',
     },
     fontSize: {
         xxl: '34px',

@@ -15,12 +15,19 @@ const MovieList = ({ movies }: IMovieList) => {
     return (
         <MovieListWrapper>
             {movies.map(
-                ({ title, vote_average, genre_ids, poster_path }: IMovie) => (
+                ({
+                    title,
+                    vote_average,
+                    genre_ids,
+                    poster_path,
+                    id,
+                }: IMovie) => (
                     <MovieCard
                         title={title}
                         rate={roundNumber(vote_average)}
                         genre={genre_ids}
                         poster={poster_path}
+                        key={id}
                     />
                 )
             )}
