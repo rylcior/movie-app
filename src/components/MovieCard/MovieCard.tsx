@@ -1,4 +1,5 @@
 import React from 'react';
+import { getImage } from 'helpers/getImage';
 import {
     MovieCardWrapper,
     MovieImage,
@@ -16,13 +17,9 @@ interface IMovieCard {
 }
 
 const MovieCard = ({ title, rate, genre, poster }: IMovieCard) => {
-    const getPoster = (): string => {
-        return `https://image.tmdb.org/t/p/w300${poster}`;
-    };
-
     return (
         <MovieCardWrapper>
-            {poster ? <MovieImage src={getPoster()} /> : null}
+            {poster ? <MovieImage src={getImage(poster)} /> : null}
             <TitleAndRateWrapper>
                 <MovieTitle>{title}</MovieTitle>
                 <MovieRate>{rate}</MovieRate>

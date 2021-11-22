@@ -7,6 +7,7 @@ const popularPath = '/popular?';
 const nowPlayingPath = '/now_playing?';
 const topRatedPath = '/top_rated?';
 const upcomingPath = '/upcoming?';
+const creditsPath = '/credits?';
 
 const instance = axios.create({
     baseURL: 'https://api.themoviedb.org/3/movie',
@@ -32,6 +33,14 @@ export const getUpcomingMovies = (): Promise<AxiosResponse> => {
     return httpGet(upcomingPath);
 };
 
-export const getPoster = (posterPath: string): Promise<AxiosResponse> => {
+export const getImage = (posterPath: string): Promise<AxiosResponse> => {
     return axios.get(`${posterUrl}${posterPath}`);
+};
+
+export const getMovieDetails = (id: string): Promise<AxiosResponse> => {
+    return httpGet(`/${id}?`);
+};
+
+export const getCredits = (id: string): Promise<AxiosResponse> => {
+    return httpGet(`/${id}${creditsPath}`);
 };

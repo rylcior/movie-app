@@ -17,7 +17,7 @@ export const theme: DefaultTheme = {
         black: '#111111',
         success: '#8FCB81',
         error: '#FF8383',
-        warning: '#E1D888',
+        yellow: '#E1D888',
         cream: '#fefbe9',
         darkCream: '#fefbd1',
     },

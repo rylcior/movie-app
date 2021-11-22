@@ -1,6 +1,6 @@
 import IMovie from './Movie';
 
-export default interface MovieList {
+export default interface IMovieList {
     page: number;
     results: Array<IMovie>;
     total_results: number;

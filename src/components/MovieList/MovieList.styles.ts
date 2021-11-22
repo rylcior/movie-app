@@ -5,4 +5,5 @@ export const MovieListWrapper = styled.div`
     gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 100px;
 `;
