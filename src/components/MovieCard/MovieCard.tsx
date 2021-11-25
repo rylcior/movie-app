@@ -7,6 +7,7 @@ import {
     MovieGenre,
     MovieRate,
     TitleAndRateWrapper,
+    RouterLink,
 } from './MovieCard.styles';
 
 interface IMovieCard {
@@ -14,17 +15,20 @@ interface IMovieCard {
     rate: number;
     genre: Array<number>;
     poster: string | null;
+    movieid: number;
 }
 
-const MovieCard = ({ title, rate, genre, poster }: IMovieCard) => {
+const MovieCard = ({ title, rate, genre, poster, movieid }: IMovieCard) => {
     return (
         <MovieCardWrapper>
-            {poster ? <MovieImage src={getImage(poster)} /> : null}
-            <TitleAndRateWrapper>
-                <MovieTitle>{title}</MovieTitle>
-                <MovieRate>{rate}</MovieRate>
-            </TitleAndRateWrapper>
-            <MovieGenre>{genre}</MovieGenre>
+            <RouterLink to={`/movie/${movieid}`}>
+                {poster ? <MovieImage src={getImage(poster)} /> : null}
+                <TitleAndRateWrapper>
+                    <MovieTitle>{title}</MovieTitle>
+                    <MovieRate>{rate}</MovieRate>
+                </TitleAndRateWrapper>
+                <MovieGenre>{genre}</MovieGenre>
+            </RouterLink>
         </MovieCardWrapper>
     );
 };

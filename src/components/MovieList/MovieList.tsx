@@ -27,6 +27,7 @@ const MovieList = ({ movies }: IMovieList) => {
                         rate={roundNumber(vote_average)}
                         genre={genre_ids}
                         poster={poster_path}
+                        movieid={id}
                         key={id}
                     />
                 )

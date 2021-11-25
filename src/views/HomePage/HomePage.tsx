@@ -6,52 +6,56 @@ import {
     getNowPlayingMovies,
     getTopRatedMovies,
     getUpcomingMovies,
+    getSearchMovie,
 } from 'api/dataProvider';
 import { FilterNames } from 'enums/FiltersNames';
-import Filters from 'components/Filters/Filters';
 import LoadSpinner from 'components/LoadSpinner';
+import NavTemplate from 'templates/NavigationTemplate';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { HomePageWrapper } from './HomePage.styles';
 
 const HomePage = () => {
+    const { movies } = useParams();
     const [movieList, setMovieList] = useState<Array<IMovie>>([]);
-    const [currentFilter, setCurrentFilter] = useState<FilterNames>(
-        FilterNames.POPULAR
-    );
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
         setIsLoading(true);
-
-        if (currentFilter === FilterNames.POPULAR) {
+        if (movies === FilterNames.POPULAR) {
             getPopularMovies().then((resp) => {
                 setMovieList(resp.data.results);
             });
-        } else if (currentFilter === FilterNames.NOW_PLAYING) {
+        } else if (movies === FilterNames.NOW_PLAYING) {
             getNowPlayingMovies().then((resp) => {
                 setMovieList(resp.data.results);
             });
-        } else if (currentFilter === FilterNames.TOP_RATED) {
+        } else if (movies === FilterNames.TOP_RATED) {
             getTopRatedMovies().then((resp) => {
                 setMovieList(resp.data.results);
             });
-        } else if (currentFilter === FilterNames.UPCOMING) {
+        } else if (movies === FilterNames.UPCOMING) {
             getUpcomingMovies().then((resp) => {
                 setMovieList(resp.data.results);
             });
+        } else if (movies === 'search') {
+            const title = searchParams.get('title');
+            if (title) {
+                getSearchMovie(title).then((resp) => {
+                    setMovieList(resp.data.results);
+                });
+            }
         }
 
         setIsLoading(false);
-    }, [currentFilter]);
-
-    const onFilterChange = (filterName: FilterNames): void => {
-        setCurrentFilter(filterName);
-    };
+    }, [movies, searchParams]);
 
     return (
-        <HomePageWrapper>
-            <Filters onChange={onFilterChange} />
-            {isLoading ? <LoadSpinner /> : <MovieList movies={movieList} />}
-        </HomePageWrapper>
+        <NavTemplate>
+            <HomePageWrapper>
+                {isLoading ? <LoadSpinner /> : <MovieList movies={movieList} />}
+            </HomePageWrapper>
+        </NavTemplate>
     );
 };
 

@@ -59,13 +59,16 @@ const MovieDetailsCardHeader = ({
                     <InformationWrapper>
                         <InformationIcon src={BudgetIcon} />
                         <InformationText>
-                            Budget: {`$${budget}`}
+                            Budget: {budget ? `$${budget}` : 'No information'}
                         </InformationText>
                     </InformationWrapper>
 
                     <InformationWrapper>
                         <InformationIcon src={DurationIcon} />
-                        <InformationText>Duration: {runtime}m</InformationText>
+                        <InformationText>
+                            Duration:{' '}
+                            {runtime ? `${runtime}m` : 'No information'}
+                        </InformationText>
                     </InformationWrapper>
                 </InformationsWrapper>
             </HeaderTextWrapper>

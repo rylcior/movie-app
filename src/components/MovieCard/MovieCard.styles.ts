@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const MovieCardWrapper = styled.div`
     display: flex;
@@ -38,4 +39,9 @@ export const MovieRate = styled.div`
 export const MovieGenre = styled.p`
     font-size: ${({ theme }) => theme.fontSize.m};
     margin-left: 10px;
+`;
+
+export const RouterLink = styled(Link)`
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.black};
 `;

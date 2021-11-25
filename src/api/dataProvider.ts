@@ -8,9 +8,14 @@ const nowPlayingPath = '/now_playing?';
 const topRatedPath = '/top_rated?';
 const upcomingPath = '/upcoming?';
 const creditsPath = '/credits?';
+const searchPath = '/movie?';
 
 const instance = axios.create({
     baseURL: 'https://api.themoviedb.org/3/movie',
+});
+
+const searchInstane = axios.create({
+    baseURL: 'https://api.themoviedb.org/3/search',
 });
 
 const httpGet = (url: string) => {
@@ -43,4 +48,8 @@ export const getMovieDetails = (id: string): Promise<AxiosResponse> => {
 
 export const getCredits = (id: string): Promise<AxiosResponse> => {
     return httpGet(`/${id}${creditsPath}`);
+};
+
+export const getSearchMovie = (movieTitle: string): Promise<AxiosResponse> => {
+    return searchInstane.get(`${searchPath}${apiKey}&query=${movieTitle}`);
 };
