@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from 'views/HomePage/HomePage';
-import MovieDetailsCard from 'components/MovieDetailsCard/MovieDetailsCard';
+import MovieDetailsPage from 'views/MovieDetailsPage/MovieDetailsPage';
 import { RoutesNames } from 'enums/RoutesNames';
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
                 <Route path={RoutesNames.HOME} element={<HomePage />} />
                 <Route
                     path={RoutesNames.DETAILS}
-                    element={<MovieDetailsCard />}
+                    element={<MovieDetailsPage />}
                 />
                 <Route path='*' element={<HomePage />} />
             </Routes>

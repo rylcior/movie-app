@@ -6,6 +6,11 @@ export const MovieCardWrapper = styled.div`
     flex-direction: column;
     width: 200px;
     background-color: ${({ theme }) => theme.colors.cream};
+    transform: translateX(0);
+    transition: 0.3s;
+    &:hover {
+        transform: translateY(-20px);
+    }
 `;
 
 export const MovieImage = styled.img`
