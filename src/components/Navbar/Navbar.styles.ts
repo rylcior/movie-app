@@ -6,6 +6,11 @@ export const NavbarWrapper = styled.nav`
     align-items: center;
     width: 100%;
     margin-top: 20px;
+
+    @media ${({ theme }) => theme.device.sm} {
+        flex-direction: column;
+        gap: 20px;
+    }
 `;
 
 export const Logo = styled.img`
@@ -53,6 +58,11 @@ export const LinksWrapper = styled.div`
     gap: 20px;
     font-size: ${({ theme }) => theme.fontSize.l};
     color: ${({ theme }) => theme.colors.white};
+
+    @media ${({ theme }) => theme.device.sm} {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
 `;
 
 export const FormWrapper = styled.form`

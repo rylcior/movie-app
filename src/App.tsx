@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from 'views/HomePage/HomePage';
 import MovieDetailsPage from 'views/MovieDetailsPage/MovieDetailsPage';
 import { RoutesNames } from 'enums/RoutesNames';
@@ -13,7 +13,7 @@ const App = () => {
                     path={RoutesNames.DETAILS}
                     element={<MovieDetailsPage />}
                 />
-                <Route path='*' element={<HomePage />} />
+                <Route path='*' element={<Navigate replace to='/popular' />} />
             </Routes>
         </div>
     );

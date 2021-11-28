@@ -8,6 +8,9 @@ declare module 'styled-components' {
         fontSize: {
             [key: string]: string;
         };
+        device: {
+            [key: string]: string;
+        };
     }
 }
 
@@ -27,5 +30,10 @@ export const theme: DefaultTheme = {
         l: '17px',
         m: '12px',
         s: '11px',
+    },
+    device: {
+        xs: '(max-width: 600px)',
+        sm: '(max-width: 960px)',
+        lg: '(max-width: 1264px)',
     },
 };
