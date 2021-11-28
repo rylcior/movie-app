@@ -3,11 +3,22 @@ import styled from 'styled-components';
 export const CardHeader = styled.div`
     display: flex;
     background-color: rgba(0, 0, 0, 0.5);
+
+    @media ${({ theme }) => theme.device.sm} {
+        flex-direction: column;
+        gap: 20px;
+    }
 `;
 
 export const Image = styled.img`
     max-width: 300px;
     max-height: 450px;
+
+    @media ${({ theme }) => theme.device.sm} {
+        max-width: 100%;
+        margin: 30px 30px 0 30px;
+        object-fit: contain;
+    }
 `;
 
 export const Title = styled.h1`
@@ -35,6 +46,10 @@ export const GenresWrapper = styled.div`
     align-items: center;
     gap: 10px;
     margin-left: 50px;
+
+    @media ${({ theme }) => theme.device.sm} {
+        flex-wrap: wrap;
+    }
 `;
 
 export const Genre = styled.h5`
@@ -54,6 +69,14 @@ export const InformationsWrapper = styled.div`
     display: flex;
     justify-content: space-around;
     gap: 10px;
+
+    @media ${({ theme }) => theme.device.sm} {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        position: relative;
+        margin-top: 40px;
+    }
 `;
 
 export const InformationWrapper = styled.div`
